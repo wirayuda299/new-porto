@@ -5,6 +5,8 @@ import FeatureProjectCard from './card'
 import { ArrowRight } from 'lucide-react'
 import { getCaseStudies } from '@/sanity/action';
 
+
+
 export default async function FeaturedProjects() {
 
   const projects = await getCaseStudies('featured');

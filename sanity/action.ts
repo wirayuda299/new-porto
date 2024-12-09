@@ -8,7 +8,7 @@ export async function getCaseStudies(sort: Sort = "all"): Promise<Projects[]> {
     let query: string;
 
     if (sort === "featured") {
-      query = `*[_type == "caseStudies" && difficulty > 8][0..3]{
+      query = `*[_type == "caseStudies" && difficulty > 8.5][0..2]{
 				 _id,
     title,
     subTitle,
@@ -32,7 +32,7 @@ backgroundColor,
 	
 }`;
     }
-    return await client.fetch(query);
+    return await client.fetch(query, { next: { revalidate: 10 } });
   } catch (error) {
     throw error;
   }
