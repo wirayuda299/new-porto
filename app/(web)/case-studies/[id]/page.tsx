@@ -71,23 +71,25 @@ export default async function CaseStudyDetail({ params }: Props) {
           {caseStudy?.descriptions}
         </p>
       </section>
-      <section className="mx-auto mt-7 flex max-w-[880px] flex-col gap-5 px-4 py-10">
-        <h2 className="text-2xl font-semibold text-white">Tech Stack</h2>
-        <div className="flex items-center gap-3">
-          {caseStudy?.techStacks.map((tech) => (
-            <Image
-              className="size-12 object-cover"
-              key={tech.name}
-              src={tech.icon}
-              sizes="40px"
-              width={40}
-              loading="lazy"
-              height={40}
-              alt={tech.name}
-            />
-          ))}
-        </div>
-      </section>
+      {caseStudy?.techStacks && (
+        <section className="mx-auto mt-7 flex max-w-[880px] flex-col gap-5 px-4 py-10">
+          <h2 className="text-2xl font-semibold text-white">Tech Stack</h2>
+          <div className="flex items-center gap-3">
+            {caseStudy?.techStacks.map((tech) => (
+              <Image
+                className="size-12 object-cover"
+                key={tech.name}
+                src={tech.icon}
+                sizes="40px"
+                width={40}
+                loading="lazy"
+                height={40}
+                alt={tech.name}
+              />
+            ))}
+          </div>
+        </section>
+      )}
       <ChallengesLearning
         challenges={caseStudy?.challenges || []}
         learnings={caseStudy?.learnings || []}
