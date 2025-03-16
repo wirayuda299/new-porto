@@ -32,10 +32,10 @@ export default async function CaseStudies({ id }: { id: string }) {
                 <h3 className="text-base font-semibold text-white">
                   {p.title}
                 </h3>
-                <p className="line-clamp-3 py-3 text-sm text-white first-letter:capitalize">
-                  {p.descriptions?.slice(0, 100)}
+                <p className="line-clamp-3 py-3 text-sm text-white first-letter:capitalize ">
+                  {p.descriptions?.slice(0, 50)}
                 </p>
-                <Link href={`/project/${p._id}`}>
+                <Link href={`/case-studies/${p._id}`}>
                   <Button className="w-full rounded-full hover:bg-primary-dark/50 bg-primary-dark text-white">
                     See Case Study
                   </Button>
