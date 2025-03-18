@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "./ui/button";
 import { getSimilarCaseStudies } from "@/sanity/action";
 
 export default async function CaseStudies({ id }: { id: string }) {
@@ -15,32 +13,31 @@ export default async function CaseStudies({ id }: { id: string }) {
           Other Case Studies
         </h2>
         <div className="flex h-fit snap-x snap-mandatory gap-6 overflow-x-scroll">
-          {similarCaseStudies?.map((p) => (
+          {similarCaseStudies?.map((project) => (
             <div
-              className="h-min min-w-[300px] max-w-[450px] snap-start rounded-lg p-3 shadow-md bg-black-300 shadow-light-shadow"
-              key={p._id}
+              className="max-w-sm min-w-[300px] group/card"
+              key={project.title}
             >
-              <Image
-                className="w-96 rounded-lg object-contain"
-                src={p.mockup}
-                width={500}
-                height={500}
-                alt={p.title}
-                loading="lazy"
-              />
-              <div className="p-4">
-                <h3 className="text-base font-semibold text-white">
-                  {p.title}
-                </h3>
-                <p className="line-clamp-3 py-3 text-sm text-white first-letter:capitalize ">
-                  {p.descriptions?.slice(0, 50)}
-                </p>
-                <Link href={`/case-studies/${p._id}`}>
-                  <Button className="w-full rounded-full hover:bg-primary-dark/50 bg-primary-dark text-white">
-                    See Case Study
-                  </Button>
-                </Link>
-              </div>
+              <Link
+                href={`/case-studies/${project._id}`}
+                className="cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4"
+                style={{
+                  backgroundImage: `url(${project.mockup})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
+
+                <div className="absolute bottom-0 left-0 w-full p-4">
+                  <h1 className="font-bold text-xl md:text-2xl invert relative z-10">
+                    {project.title}
+                  </h1>
+                  <p className="font-normal text-sm text-gray-50 relative z-10 my-4 truncate">
+                    {project.descriptions}
+                  </p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
