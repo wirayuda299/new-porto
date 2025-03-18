@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
         protocol: "https",
         pathname: "/**/*",
       },
+
+      {
+        hostname: "aceternity.com",
+        port: "",
+        protocol: "https",
+        pathname: "/**/*",
+      },
     ],
   },
   env: {

@@ -1,19 +1,20 @@
 import CallToAction from "@/components/cta";
 import Experience from "@/components/experience/experience";
 import FeaturedProjects from "@/components/featured-projects/feature-projects";
-import Hero from "@/components/hero";
+import { HeroParallax } from "@/components/hero/hero";
 import Services from "@/components/services/services";
 import Skills from "@/components/skills/skills";
-
+import { getCaseStudies } from "@/sanity/action";
 
 export const metadata = {
-  title: 'Home'
-}
+  title: "Home",
+};
 
 export default async function Home() {
+  const projects = await getCaseStudies("all");
   return (
     <>
-      <Hero />
+      <HeroParallax projects={projects} />
       <Skills />
       <Services />
       <Experience />

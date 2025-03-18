@@ -91,12 +91,18 @@ export default {
         "fade-right": "fade-right 500ms ease forwards",
         increasing: "increasing 500ms forwards",
         "icon-up": "icon-up 0.5s linear",
+        move: "move 5s linear infinite",
       },
 
       keyframes: {
         "fade-in": {
           from: { opacity: 0 },
           to: { opacity: 1 },
+        },
+
+        move: {
+          "0%": { transform: "translateX(-200px)" },
+          "100%": { transform: "translateX(200px)" },
         },
         "fade-up": {
           from: {
