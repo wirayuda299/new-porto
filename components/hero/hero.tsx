@@ -39,15 +39,15 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-500, 200]),
     springConfig,
   );
   return (
     <section
       ref={ref}
-      className="h-[350vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="md:h-[250dvh] max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+      <div className="flex flex-col p-3 md:p-10 h-screen justify-center">
         <h1 className="text-2xl md:text-7xl font-bold text-white">
           Professional Web
           <br /> Developer Based in Bali.
