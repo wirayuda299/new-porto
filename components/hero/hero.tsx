@@ -43,7 +43,7 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
     springConfig,
   );
   return (
-    <div
+    <section
       ref={ref}
       className="h-[350vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
@@ -93,6 +93,6 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
           ))}
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };
