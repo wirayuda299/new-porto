@@ -29,12 +29,11 @@ export default function ProjectCard({
       >
         <Image
           src={project?.mockup}
-          height="600"
-          width="600"
           priority
+          fill
+          sizes="500px"
           quality={55}
           fetchPriority="high"
-          sizes="500px"
           className="object-cover object-center absolute h-full w-full inset-0"
           alt={project.title}
         />
