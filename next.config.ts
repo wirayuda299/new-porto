@@ -9,13 +9,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         pathname: "/**/*",
       },
-
-      {
-        hostname: "aceternity.com",
-        port: "",
-        protocol: "https",
-        pathname: "/**/*",
-      },
     ],
   },
   env: {
@@ -24,9 +17,6 @@ const nextConfig: NextConfig = {
     EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
     EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY,
     EMAILJS_PRIVATE_KEY: process.env.EMAILJS_PRIVATE_KEY,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
   },
 };
 

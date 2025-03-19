@@ -96,8 +96,8 @@ export default {
 
       keyframes: {
         "fade-in": {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
 
         move: {
@@ -106,36 +106,36 @@ export default {
         },
         "fade-up": {
           from: {
-            opacity: 0,
+            opacity: "0",
             transform: "translateY(50px)",
           },
           to: {
-            opacity: 1,
+            opacity: "1",
             transform: "translateY(0)",
           },
         },
         "fade-right": {
           from: {
-            opacity: 0,
+            opacity: "0",
             transform: "translateX(-50px)",
           },
           to: {
-            opacity: 1,
+            opacity: "1",
             transform: "translateX(0)",
           },
         },
         "fade-left": {
           from: {
-            opacity: 0,
+            opacity: "0",
             transform: "translateX(50px)",
           },
           to: {
-            opacity: 1,
+            opacity: "1",
             transform: "translateX(0)",
           },
         },
         increasing: {
-          from: { width: 0 },
+          from: { width: "0" },
           to: { width: "100%" },
         },
         "icon-up": {
