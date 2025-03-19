@@ -46,9 +46,9 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
   return (
     <section
       ref={ref}
-      className="md:h-[200dvh] max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className=" max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <div className="flex gap-5 h-[100svh] flex-col justify-center pt-24 px-4 md:px-10">
+      <div className="flex gap-5 min-h-[650px] flex-col justify-center px-4 md:px-10">
         <h1 className="text-3xl font-bold text-white md:text-7xl">
           Professional Web
           <br /> Developer Based in Bali.
