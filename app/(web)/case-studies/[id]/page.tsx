@@ -22,7 +22,7 @@ export default async function CaseStudyDetail({ params }: Props) {
         web dev project
       </p>
       <h1 className="mx-auto max-w-[880px] py-5 text-center text-3xl font-bold text-white lg:text-5xl ">
-        <span className="relative z-[1] before:absolute before:bottom-0 before:left-0 before:z-[-1] before:h-3 before:w-full before:bg-secondary lg:before:bottom-2">
+        <span className="relative z-1 before:absolute before:bottom-0 before:left-0 before:z-[-1] before:h-3 before:w-full before:bg-secondary lg:before:bottom-2">
           {caseStudy?.title}
         </span>{" "}
         - {caseStudy?.subTitle}

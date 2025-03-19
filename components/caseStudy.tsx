@@ -19,6 +19,7 @@ export default async function CaseStudies({ id }: { id: string }) {
               key={project.title}
             >
               <Link
+                scroll
                 href={`/case-studies/${project._id}`}
                 className="cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4"
                 style={{

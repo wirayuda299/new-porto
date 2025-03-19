@@ -39,7 +39,7 @@ export default function ContactForm() {
               minLength={1}
               maxLength={500}
               name='messageText'
-              className='h-16 focus:!ring-1  !border-none !bg-black-300 text-white focus:!ring-primary-dark focus-visible:!border-0 focus-visible:!ring-offset-0 resize-none'
+              className='h-16 focus:ring-1!  border-none! bg-black-300! text-white focus:ring-primary-dark! focus-visible:border-0! focus-visible:ring-offset-0! resize-none'
 
             />
           ) : (
@@ -48,7 +48,7 @@ export default function ContactForm() {
               maxLength={200}
               name={form_field.label}
               autoComplete='off'
-              className='h-12  focus:!ring-1  !border-none !bg-black-300 text-white focus:!ring-primary-dark focus-visible:!border-0 focus-visible:!ring-offset-0'
+              className='h-12  focus:ring-1!  border-none! bg-black-300! text-white focus:ring-primary-dark! focus-visible:border-0! focus-visible:ring-offset-0!'
             />
           )}
         </div>

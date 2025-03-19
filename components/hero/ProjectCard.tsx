@@ -32,7 +32,9 @@ export default function ProjectCard({
           height="600"
           width="600"
           priority
+          quality={55}
           fetchPriority="high"
+          sizes="500px"
           className="object-cover object-center absolute h-full w-full inset-0"
           alt={project.title}
         />

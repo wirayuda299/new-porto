@@ -13,7 +13,7 @@ export default function NavContainer() {
   const closeNav = useCallback(() => setIsOpen(false), []);
 
   const navClasses = cn(
-    "ease fixed top-0 z-50 flex h-screen w-full flex-col items-center justify-evenly overflow-hidden pr-3 backdrop-blur transition-all duration-500 border-r-white-500 md:static md:h-auto md:flex-row  md:justify-end  md:gap-x-9  md:!bg-transparent md:!bg-none md:backdrop-blur-0 md:opacity-100",
+    "ease fixed top-0 z-50 flex h-screen w-full flex-col items-center justify-evenly overflow-hidden pr-3 backdrop-blur-sm transition-all duration-500 border-r-white-500 md:static md:h-auto md:flex-row  md:justify-end  md:gap-x-9  md:bg-transparent! md:bg-none! md:backdrop-blur-0 md:opacity-100",
     isOpen ? "opacity-100 left-0 bg-black-200" : "opacity-0 -left-full",
   );
 
@@ -25,7 +25,7 @@ export default function NavContainer() {
             style={{ animationDelay: `${i * 100}ms` }}
             onClick={closeNav}
             className={cn(
-              "before:ease ease relative z-[1] flex items-center opacity-0 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:z-[-1] before:h-1 before:w-full before:scale-x-0 before:rounded-full  before:transition-all before:duration-300 hover:before:scale-x-100 text-white before:bg-primary-dark md:opacity-100",
+              "before:ease ease relative z-1 flex items-center opacity-0 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:z-[-1] before:h-1 before:w-full before:scale-x-0 before:rounded-full  before:transition-all before:duration-300 hover:before:scale-x-100 text-white before:bg-primary-dark md:opacity-100",
               isOpen ? "animate-fade-up" : "",
             )}
             key={item.title}

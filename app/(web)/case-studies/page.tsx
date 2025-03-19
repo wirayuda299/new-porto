@@ -11,7 +11,7 @@ export default async function CaseStudies() {
       <section className="mx-auto max-w-700 p-0.5 sm:p-0">
         <h1 className="ease animate-fade-up px-4 text-center text-3xl font-bold leading-normal transition-all duration-500 text-white md:px-0 lg:text-16">
           Recent{" "}
-          <span className="relative z-[1] inline-block w-max  before:absolute before:bottom-1 before:left-0 before:z-[-1] before:h-3 before:w-full before:bg-secondary lg:before:bottom-5 lg:before:h-4">
+          <span className="relative z-1 inline-block w-max  before:absolute before:bottom-1 before:left-0 before:z-[-1] before:h-3 before:w-full before:bg-secondary lg:before:bottom-5 lg:before:h-4">
             Case Studies
           </span>
         </h1>

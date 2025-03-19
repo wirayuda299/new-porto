@@ -11,11 +11,6 @@ export const metadata: Metadata = {
     template: "%s - React Developer - Wirayuda",
     default: "React Developer - Wirayuda",
   },
-  openGraph: {
-    title: "Personal portfolio website",
-    siteName: "wirayuda",
-    url: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
-  },
   description:
     "Looking for a skilled React developer? Wirayuda offers expert web development services tailored to your needs. Contact us today for top-notch solutions!",
   keywords: [
@@ -38,8 +33,13 @@ export const metadata: Metadata = {
     "frontend optimization",
     "JavaScript developer",
   ],
-  creator: "Wirayuda",
-  referrer: "origin-when-cross-origin",
+  openGraph: {
+    title: "Personal portfolio website",
+    description:
+      "Looking for a skilled React developer? Wirayuda offers expert web development services tailored to your needs.",
+    siteName: "wirayuda",
+    url: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
+  },
   robots: {
     follow: true,
     index: true,
@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   },
   authors: [{ name: "Wirayuda", url: process.env.NEXT_PUBLIC_SITE_URL }],
   publisher: "Wirayuda",
+  creator: "Wirayuda",
+  referrer: "origin-when-cross-origin",
   formatDetection: {
     email: false,
     address: false,
@@ -54,8 +56,10 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   category: "Web Development",
+  alternates: {
+    canonical: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
+  },
 };
-
 const poppins = Poppins({
   subsets: ["latin"],
   fallback: ["sans-serif"],

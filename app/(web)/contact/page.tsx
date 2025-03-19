@@ -11,7 +11,7 @@ export default function Contact() {
     <main className='w-full'>
       <div className='w-full py-6 text-center'>
         <h1 className='mx-auto w-max animate-fade-up text-4xl font-bold md:text-5xl'>
-          <span className='relative z-[1] w-full before:absolute before:bottom-1 before:left-0 before:z-[-1] before:h-3 before:w-0 before:animate-increasing before:bg-secondary text-white '>
+          <span className='relative z-1 w-full before:absolute before:bottom-1 before:left-0 before:z-[-1] before:h-3 before:w-0 before:animate-increasing before:bg-secondary text-white '>
             Get in Touch
           </span>
         </h1>

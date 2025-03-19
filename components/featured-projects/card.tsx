@@ -34,7 +34,7 @@ export default function FeatureProjectCard({
     >
       <div className='grid w-full grid-cols-1 items-center justify-between gap-6 overflow-hidden lg:grid-cols-2 lg:gap-x-11'>
         <div
-          className={cn('w-fit whitespace-pre-wrap sm:pl-10 md:pl-12', title === 'Morrent' ? 'pl-0 lg:!order-2' : ''
+          className={cn('w-fit whitespace-pre-wrap sm:pl-10 md:pl-12', title === 'Morrent' ? 'pl-0 lg:order-2!' : ''
           )}
         >
           <Title title={title} subTitle={subTitle} />
