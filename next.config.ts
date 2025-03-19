@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
     EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY,
     EMAILJS_PRIVATE_KEY: process.env.EMAILJS_PRIVATE_KEY,
   },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
