@@ -1,6 +1,6 @@
 import CallToAction from "@/components/cta";
+import ProjectCard from "@/components/project-card";
 import { getCaseStudies } from "@/sanity/action";
-import Link from "next/link";
 
 export const metadata = { title: "Case Studies" };
 
@@ -21,32 +21,7 @@ export default async function CaseStudies() {
         </p>
       </section>
       <section className="px-5 py-10 pt-20 w-full bg-black-200">
-        <div className="mx-auto flex max-w-1400 flex-wrap justify-center gap-9 ">
-          {caseStudies.map((project) => (
-            <div className="max-w-sm w-full group/card" key={project.title}>
-              <Link
-                href={`/case-studies/${project._id}`}
-                className="cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4"
-                style={{
-                  backgroundImage: `url(${project.mockup})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-
-                <div className="absolute bottom-0 left-0 w-full p-4">
-                  <h1 className="font-bold text-xl md:text-2xl invert relative z-10">
-                    {project.title}
-                  </h1>
-                  <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                    {project.descriptions.slice(0, 40)}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+        <ProjectCard projects={caseStudies} />
       </section>
       <CallToAction />
     </main>

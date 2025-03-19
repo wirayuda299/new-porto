@@ -12,14 +12,16 @@ export default function NavContainer() {
 
   const closeNav = useCallback(() => setIsOpen(false), []);
 
-  const navClasses = cn(
-    "ease fixed top-0 z-50 flex h-screen w-full flex-col items-center justify-evenly overflow-hidden pr-3 backdrop-blur-sm transition-all duration-500 border-r-white-500 md:static md:h-auto md:flex-row  md:justify-end  md:gap-x-9  md:bg-transparent! md:bg-none! md:backdrop-blur-0 md:opacity-100",
-    isOpen ? "opacity-100 left-0 bg-black-200" : "opacity-0 -left-full",
-  );
-
   return (
     <>
-      <ul className={navClasses}>
+      <ul
+        className={cn(
+          "ease fixed top-0 z-50 flex h-screen w-full flex-col items-center justify-evenly overflow-hidden pr-3 backdrop-blur-sm transition-all duration-500 border-r-white-500 md:static md:h-auto md:flex-row  md:justify-end  md:gap-x-9 md:!bg-transparent md:!bg-none md:!backdrop-blur-none md:opacity-100",
+          isOpen
+            ? "opacity-100 left-0 bg-black-200"
+            : "opacity-0 -left-full !bg-none",
+        )}
+      >
         {NAV_ITEMS.map((item, i) => (
           <li
             style={{ animationDelay: `${i * 100}ms` }}
