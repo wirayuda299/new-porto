@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 import ProjectCard from "./ProjectCard";
 import { Projects } from "@/types";
+import CallToAction from "./cta";
 
 export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
   const firstRow = projects.slice(0, 5);
@@ -39,23 +40,24 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-500, 200]),
+    useTransform(scrollYProgress, [0, 0.2], [-500, 50]),
     springConfig,
   );
   return (
     <section
       ref={ref}
-      className="md:h-[250dvh] max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="md:h-[200dvh] max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <div className="flex flex-col p-3 md:p-10 h-[500px] justify-center">
-        <h1 className="text-2xl md:text-7xl font-bold text-white">
+      <div className="flex gap-5 h-[100svh] flex-col justify-center pt-24 px-4 md:px-10">
+        <h1 className="text-3xl font-bold text-white md:text-7xl">
           Professional Web
           <br /> Developer Based in Bali.
         </h1>
-        <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
+        <p className=" max-w-2xl text-base text-neutral-200 md:text-xl">
           Crafting cutting-edge digital experiences with precision, passion, and
           a profound commitment to excellence
         </p>
+        <CallToAction />
       </div>
       <motion.div
         style={{

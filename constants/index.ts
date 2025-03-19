@@ -17,6 +17,8 @@ export const NAV_ITEMS = [
   },
 ] as const;
 
+export const MY_EMAIL = "wirayuda233@gmail.com";
+
 export const JOB_LIST = [
   "Collaborated with a diverse international team, employing Git for version control and Asana for efficient project management and task tracking.",
   "Led the development lifecycle of various projects, starting from frontend design and ending with robust full-stack applications, ensuring seamless user experiences and high-quality code.",
