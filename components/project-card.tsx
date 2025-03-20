@@ -112,6 +112,7 @@ export default function ExpandedProjectCard({
                   </div>
 
                   <Link
+                    scroll={true}
                     href={`/case-studies/${active._id}`}
                     className="px-4 py-3 text-sm rounded-full font-bold bg-primary-dark text-white"
                   >

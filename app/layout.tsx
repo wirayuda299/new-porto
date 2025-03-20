@@ -6,6 +6,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 
+//world
+
 export const metadata: Metadata = {
   title: {
     template: "%s - React Developer - Wirayuda",

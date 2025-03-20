@@ -1,6 +1,5 @@
 import { ArrowRight, GlobeIcon } from "lucide-react";
 import Image from "next/image";
-import { Suspense } from "react";
 
 import { getSingleCaseStudy } from "@/sanity/action";
 import ChallengesLearning from "@/components/challenges";
@@ -13,11 +12,11 @@ type Props = {
 };
 
 export default async function CaseStudyDetail({ params }: Props) {
-  const id = (await params).id;
+  const { id } = await params;
   const caseStudy = await getSingleCaseStudy(id);
 
   return (
-    <main className="size-full mx-auto">
+    <main className="size-full overflow-y-auto">
       <p className="text-center text-sm font-semibold uppercase text-white">
         web dev project
       </p>
@@ -77,14 +76,14 @@ export default async function CaseStudyDetail({ params }: Props) {
           <div className="flex items-center gap-3">
             {caseStudy?.techStacks.map((tech) => (
               <Image
-                className="size-12 object-cover"
+                className="size-12 object-contain"
                 key={tech.name}
                 src={tech.icon}
                 sizes="40px"
                 width={40}
                 loading="lazy"
                 height={40}
-                alt={tech.name}
+                alt={tech.name || "tech icon"}
               />
             ))}
           </div>
@@ -94,11 +93,7 @@ export default async function CaseStudyDetail({ params }: Props) {
         challenges={caseStudy?.challenges || []}
         learnings={caseStudy?.learnings || []}
       />
-      {caseStudy && (
-        <Suspense fallback="Loading....">
-          <CaseStudies id={caseStudy?._id} />
-        </Suspense>
-      )}
+      {caseStudy?._id && <CaseStudies id={caseStudy?._id} />}
     </main>
   );
 }

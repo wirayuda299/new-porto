@@ -35,7 +35,7 @@ const buildCaseStudyQuery = (
     case "similar":
       return `${CASE_STUDY_BASE_QUERY}[_id != $id]{${CASE_STUDY_FIELDS}}`;
 
-    default: // "all"
+    default:
       return `${CASE_STUDY_BASE_QUERY}{${CASE_STUDY_FIELDS}}`;
   }
 };
