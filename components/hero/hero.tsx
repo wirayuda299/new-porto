@@ -49,11 +49,11 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
       className=" max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <div className="flex gap-5 min-h-[650px] flex-col justify-center px-4 md:px-10">
-        <h1 className="text-3xl font-bold text-white md:text-7xl">
+        <h1 className="text-3xl font-bold text-white md:text-7xl animate-fade-right transition-all duration-500">
           Professional Web
           <br /> Developer Based in Bali.
         </h1>
-        <p className=" max-w-2xl text-base text-neutral-200 md:text-xl">
+        <p className=" max-w-2xl text-base text-neutral-200 md:text-xl animate-fade-right transition-all duration-500 ">
           Crafting cutting-edge digital experiences with precision, passion, and
           a profound commitment to excellence
         </p>

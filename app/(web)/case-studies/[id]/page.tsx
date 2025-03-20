@@ -1,7 +1,7 @@
 import { ArrowRight, GlobeIcon } from "lucide-react";
 import Image from "next/image";
 
-import { getSingleCaseStudy } from "@/sanity/action";
+import { getSimilarCaseStudies, getSingleCaseStudy } from "@/sanity/action";
 import ChallengesLearning from "@/components/challenges";
 import CaseStudies from "@/components/caseStudy";
 
@@ -13,19 +13,24 @@ type Props = {
 
 export default async function CaseStudyDetail({ params }: Props) {
   const { id } = await params;
-  const caseStudy = await getSingleCaseStudy(id);
+
+  const [caseStudy, simillarCaseStudies] = await Promise.all([
+    getSingleCaseStudy(id),
+    getSimilarCaseStudies(id),
+  ]);
 
   return (
-    <main className="size-full overflow-y-auto">
+    <main className="size-full overflow-y-auto min-h-screen">
       <p className="text-center text-sm font-semibold uppercase text-white">
         web dev project
       </p>
-      <h1 className="mx-auto max-w-[880px] py-5 text-center text-3xl font-bold text-white lg:text-5xl ">
-        <span className="relative z-1 before:absolute before:bottom-0 before:left-0 before:z-[-1] before:h-3 before:w-full before:bg-secondary lg:before:bottom-2">
-          {caseStudy?.title}
-        </span>{" "}
-        - {caseStudy?.subTitle}
-      </h1>
+      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold animate-fade-up duration-500 tracking-tighter text-white relative capitalize">
+          {caseStudy?.title} - {caseStudy?.subTitle}
+          <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-[#4F46E5] to-[#10B981] rounded-full"></span>
+        </h2>
+      </div>
+
       <section className="pt-7 max-w-[500px] mx-auto relative min-h-[300px]">
         <Image
           className="w-full h-full object-cover object-center rounded-md aspect-auto"
@@ -93,7 +98,9 @@ export default async function CaseStudyDetail({ params }: Props) {
         challenges={caseStudy?.challenges || []}
         learnings={caseStudy?.learnings || []}
       />
-      {caseStudy?._id && <CaseStudies id={caseStudy?._id} />}
+      {caseStudy?._id && (
+        <CaseStudies similarCaseStudies={simillarCaseStudies} />
+      )}
     </main>
   );
 }

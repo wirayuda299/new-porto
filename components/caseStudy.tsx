@@ -1,10 +1,11 @@
+import { Projects } from "@/types";
 import Link from "next/link";
 
-import { getSimilarCaseStudies } from "@/sanity/action";
-
-export default async function CaseStudies({ id }: { id: string }) {
-  const similarCaseStudies = await getSimilarCaseStudies(id);
-
+export default async function CaseStudies({
+  similarCaseStudies,
+}: {
+  similarCaseStudies: Projects[];
+}) {
   return (
     <section className="bg-black-300">
       <div className="mx-auto mt-7 flex max-w-[880px] flex-col gap-5 px-3 py-10">

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
-import Link from "next/link";
 
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Projects } from "@/types";
@@ -79,18 +78,17 @@ export default function ExpandedProjectCard({
               ref={ref}
               className="size-full min-md:min-w-[768px] min-md:max-w-[900px] h-full min-h-[300px] md:h-fit md:max-h-[90%] grid grid-cols-1 md:grid-cols-2 bg-black-200 sm:rounded-3xl overflow-y-auto min-md:overflow-hidden gap-3.5"
             >
-              {active && (
-                <motion.div layoutId={`image-${active.title}-${id}`}>
-                  <Image
-                    width={200}
-                    height={200}
-                    quality={100}
-                    src={active?.mockup}
-                    alt={active.title}
-                    className="size-full sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-center"
-                  />
-                </motion.div>
-              )}
+              <motion.div layoutId={`image-${active.title}-${id}`}>
+                <Image
+                  width={400} // Increase resolution
+                  height={400}
+                  quality={100}
+                  className="rounded-lg size-full object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                  src={active?.mockup}
+                  alt={active.title}
+                />
+              </motion.div>
 
               <article className="flex flex-col">
                 <div className="flex flex-col justify-between items-start p-4">
@@ -110,14 +108,13 @@ export default function ExpandedProjectCard({
                         : active.descriptions}
                     </motion.p>
                   </div>
-
-                  <Link
-                    scroll={true}
+                  <motion.a
+                    layoutId={`button-${active.title}-${id}`}
                     href={`/case-studies/${active._id}`}
                     className="px-4 py-3 text-sm rounded-full font-bold bg-primary-dark text-white"
                   >
                     More detail
-                  </Link>
+                  </motion.a>
                 </div>
               </article>
             </motion.div>
@@ -135,13 +132,13 @@ export default function ExpandedProjectCard({
             <div className="flex gap-4 flex-col  w-full">
               <motion.div layoutId={`image-${project.title}-${id}`}>
                 <Image
-                  width={200}
+                  width={300}
                   quality={100}
-                  height={200}
+                  height={300}
                   src={project.mockup}
                   alt={project.title}
                   sizes="300px"
-                  className="size-80 w-full rounded-lg object-cover object-top"
+                  className="size-80 rounded-lg object-cover object-top"
                 />
               </motion.div>
               <div className="flex justify-center items-center flex-col">
