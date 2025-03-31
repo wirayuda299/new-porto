@@ -82,12 +82,12 @@ export default function ExpandedProjectCard({
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   width={400} 
-                  height={400}
+                  height={300}
                   quality={50}
                   loading="lazy"
-                  placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 400))}`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                  className="rounded-lg size-full object-cover"
+                  placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 300))}`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
+                  className="rounded-lg size-full object-cover max-h-[300px]"
                   src={active?.mockup}
                   alt={active.title}
                 />
