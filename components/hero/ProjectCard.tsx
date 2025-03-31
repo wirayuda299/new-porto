@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { MotionValue, motion } from "motion/react";
 import Image from "next/image";
+
 import { Projects } from "@/types";
+import { shimmer, toBase64 } from "@/utils";
 
 export default function ProjectCard({
   translate,
@@ -29,9 +31,11 @@ export default function ProjectCard({
       >
         <Image
           src={project?.mockup}
-          priority
           fill
-          sizes="500px"
+          loading="lazy"
+                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 400))}`}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+
           quality={55}
           fetchPriority="high"
           className="object-cover object-center absolute h-full w-full inset-0"

@@ -6,8 +6,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 
-//world
-
 export const metadata: Metadata = {
   title: {
     template: "%s - React Developer - Wirayuda",
@@ -76,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("bg-black-300", poppins.className)}>
+      <body className={cn("bg-black-300 ", poppins.className)}>
         {children}
         <Toaster />
       </body>
