@@ -9,8 +9,10 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { SERVICES } from "@/constants";
 import { getCaseStudies } from "@/sanity/action";
 
+
 export const metadata = {
   title: "Home",
+  description: "Welcome to my portfolio website, where creativity meets innovative web development. Discover case studies, and design solutions that transform ideas into engaging digital experiences. Explore my work and let's create something extraordinary together."
 };
 
 export default async function Home() {
