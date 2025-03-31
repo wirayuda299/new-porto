@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - React Developer - Wirayuda",
-    default: "React Developer - Wirayuda",
+    template: "%s - Wirayuda",
+    default: "- Wirayuda",
   },
   description:
     "Looking for a skilled React developer? Wirayuda offers expert web development services tailored to your needs. Contact us today for top-notch solutions!",

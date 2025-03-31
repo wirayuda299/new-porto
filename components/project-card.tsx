@@ -77,17 +77,17 @@ export default function ExpandedProjectCard({
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="size-full min-md:min-w-[768px] min-md:max-w-[900px] h-full min-h-[300px] md:h-fit md:max-h-[90%] grid grid-cols-1 md:grid-cols-2 bg-black-200 sm:rounded-3xl overflow-y-auto min-md:overflow-hidden gap-3.5"
+              className="size-full min-md:min-w-[768px] min-md:max-w-[900px] h-full min-h-[350px] md:h-fit md:max-h-[90%] grid grid-cols-1 md:grid-cols-2 bg-black-200 sm:rounded-3xl overflow-y-auto min-md:overflow-hidden gap-3"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   width={400} 
-                  height={300}
+                  height={400}
                   quality={50}
                   loading="lazy"
                   placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 300))}`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
-                  className="rounded-lg size-full object-cover max-h-[300px]"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                  className="rounded-lg size-full object-cover min-h-80  md:max-h-[400px]"
                   src={active?.mockup}
                   alt={active.title}
                 />
@@ -114,7 +114,7 @@ export default function ExpandedProjectCard({
                   <motion.a
                     layoutId={`button-${active.title}-${id}`}
                     href={`/case-studies/${active._id}`}
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-primary-dark text-white"
+                    className="px-5 py-2 !text-xs rounded-full font-normal bg-primary-dark text-white"
                   >
                     More detail
                   </motion.a>

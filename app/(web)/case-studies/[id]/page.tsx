@@ -1,5 +1,6 @@
 import { ArrowRight, GlobeIcon } from "lucide-react";
 import Image from "next/image";
+import type { Metadata  } from "next";
 
 import { getSimilarCaseStudies, getSingleCaseStudy } from "@/sanity/action";
 import ChallengesLearning from "@/components/challenges";
@@ -11,6 +12,21 @@ type Props = {
   }>;
 };
 
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  const { id } = await params
+ 
+  const caseStudy= await getSingleCaseStudy(id)
+ 
+  return {
+    title: caseStudy?.title + " - " + caseStudy?.subTitle,
+    description:caseStudy?.descriptions,
+    openGraph: {
+      images: [caseStudy?.mockup ||""],
+    },
+  }
+}
 export default async function CaseStudyDetail({ params }: Props) {
   const { id } = await params;
 

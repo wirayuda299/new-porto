@@ -163,3 +163,22 @@ export const FORM_FIELDS = [
     subTitle: "eg. phone number or email ",
   },
 ] as const;
+
+export const CASE_STUDY_BASE_QUERY = `*[_type == "caseStudies"]`;
+export const CASE_STUDY_FIELDS = `
+  _id,
+  title,
+  subTitle,
+  "mockup": mockup.asset->url,
+  demoSite,
+  sourceCode,
+  "techStacks": techStacks[]{
+    "icon": icon.asset->url, 
+    name 
+  },
+  projectInfo,
+  descriptions,
+  challenges,
+  learnings,
+  backgroundColor
+`;

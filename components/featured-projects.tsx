@@ -1,8 +1,8 @@
 import Link from "next/link";
-
-import { ArrowRight } from "lucide-react";
-import { getCaseStudies } from "@/sanity/action";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
+import { getCaseStudies } from "@/sanity/action";
 
 export default async function FeaturedProjects() {
   const projects = await getCaseStudies("featured");
@@ -29,11 +29,11 @@ export default async function FeaturedProjects() {
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-1/2 overflow-hidden rounded-lg">
                     <Image
-                      src={project.mockup || "/placeholder.svg"}
+                      src={project.mockup}
                       alt={project.title}
                       width={600}
                       height={400}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover w-full h-full transition-transform min-h-[300px] object-center duration-500 group-hover:scale-105"
                     />
                   </div>
 
@@ -42,8 +42,8 @@ export default async function FeaturedProjects() {
                       <h3 className="text-2xl md:text-3xl capitalize font-bold text-white mb-3">
                         {project.title} - {project.subTitle}
                       </h3>
-                      <p className="text-[#CBD5E1] first-letter:capitalize mb-6">
-                        {project.descriptions}
+                      <p className="text-[#CBD5E1] first-letter:capitalize mb-6 text-sm">
+                        {project.descriptions.length > 200 ?project.descriptions.slice(0,200)+"...": project.descriptions}
                       </p>
                     </div>
 
