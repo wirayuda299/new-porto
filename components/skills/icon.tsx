@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Image from "next/image";
 
 import useIntersectionObserver from "@/hooks/intersection";
-import { loader } from "@/lib/utils";
 
 type TechIconProps = {
   label: string;
@@ -16,7 +15,6 @@ export default function TechIcon({ label, icon, delay }: TechIconProps) {
   const ref = useRef(null);
   useIntersectionObserver(ref, "animate-fade-up");
 
-  const blurDataUrl = loader(50, 50);
   return (
     <div
       style={{
@@ -33,7 +31,6 @@ export default function TechIcon({ label, icon, delay }: TechIconProps) {
         fetchPriority="low"
         height={70}
         quality={55}
-        placeholder={blurDataUrl}
       />
     </div>
   );

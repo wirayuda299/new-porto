@@ -8,6 +8,9 @@ export default function Loader() {
         width={100}
         height={100}
         alt="logo"
+        priority
+        fetchPriority="high"
+        sizes="100px"
         className="invert object-cover"
       />
       <p className="text-sm text-white">Loading....</p>

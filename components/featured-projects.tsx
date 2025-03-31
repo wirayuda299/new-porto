@@ -1,8 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
 import { getCaseStudies } from "@/sanity/action";
+import ExpandedProjectCard from "./project-card";
 
 export default async function FeaturedProjects() {
   const projects = await getCaseStudies("featured");
@@ -16,64 +14,8 @@ export default async function FeaturedProjects() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project._id}
-              className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_0_25px_rgba(79,70,229,0.15)]"
-            >
-              <div
-                className=" p-6 md:p-8 rounded-xl"
-                style={{ backgroundColor: project.backgroundColor }}
-              >
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="md:w-1/2 overflow-hidden rounded-lg">
-                    <Image
-                      src={project.mockup}
-                      alt={project.title}
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full transition-transform min-h-[300px] object-center duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  <div className="md:w-1/2 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-2xl md:text-3xl capitalize font-bold text-white mb-3">
-                        {project.title} - {project.subTitle}
-                      </h3>
-                      <p className="text-[#CBD5E1] first-letter:capitalize mb-6 text-sm">
-                        {project.descriptions.length > 200 ?project.descriptions.slice(0,200)+"...": project.descriptions}
-                      </p>
-                    </div>
-
-                    <div className="space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStacks.map((tech, index) => (
-                          <span
-                            key={index}
-                            className="px-3 py-2 capitalize text-xs font-medium rounded-md bg-primary  text-white"
-                          >
-                            {tech.name}
-                          </span>
-                        ))}
-                      </div>
-
-                      <Link
-                        href={`/case-studies/${project._id}`}
-                        className="inline-flex items-center text-white font-medium group/link"
-                      >
-                        See Case Study
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+        <ExpandedProjectCard projects={projects}/>
+             </div>
     </section>
   );
 }

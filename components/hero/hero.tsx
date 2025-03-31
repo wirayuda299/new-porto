@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef } from "react";
 
-import ProjectCard from "./ProjectCard";
 import { Projects } from "@/types";
 import CallToAction from "./cta";
+import HeroProjectCard from "./ProjectCard";
 
 export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
   const firstRow = projects.slice(0, 5);
@@ -69,7 +69,7 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((project) => (
-            <ProjectCard
+            <HeroProjectCard
               project={project}
               translate={translateX}
               key={project.title}
@@ -78,7 +78,7 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
         </motion.div>
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
           {secondRow.map((project) => (
-            <ProjectCard
+            <HeroProjectCard
               project={project}
               translate={translateXReverse}
               key={project.title}
@@ -87,7 +87,7 @@ export const HeroParallax = ({ projects }: { projects: Projects[] }) => {
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
           {thirdRow.map((project) => (
-            <ProjectCard
+            <HeroProjectCard
               project={project}
               translate={translateX}
               key={project.title}

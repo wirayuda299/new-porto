@@ -7,7 +7,7 @@ import { X } from "lucide-react";
 
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Projects } from "@/types";
-import { shimmer, toBase64 } from "@/utils";
+import { loader } from "@/lib/utils";
 
 export default function ExpandedProjectCard({
   projects,
@@ -85,9 +85,9 @@ export default function ExpandedProjectCard({
                   height={400}
                   quality={50}
                   loading="lazy"
-                  placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 300))}`}
+                  placeholder={loader(400,300)}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                  className="rounded-lg size-full object-cover min-h-80  md:max-h-[400px]"
+                  className="size-full object-cover object-center min-h-80 rounded-tl-2xl md:max-h-[400px]"
                   src={active?.mockup}
                   alt={active.title}
                 />
@@ -98,7 +98,7 @@ export default function ExpandedProjectCard({
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className=" text-white font-semibold py-3 text-lg"
+                      className=" text-white font-semibold capitalize py-3 text-lg"
                     >
                       {active.title}
                     </motion.h3>
@@ -106,15 +106,15 @@ export default function ExpandedProjectCard({
                       layoutId={`description-${active.descriptions}-${id}`}
                       className="text-white text-sm pb-3"
                     >
-                      {active.descriptions.length > 300
-                        ? active.descriptions.slice(0, 300) + "..."
+                      {active.descriptions.length > 200
+                        ? active.descriptions.slice(0, 200) + "..."
                         : active.descriptions}
                     </motion.p>
                   </div>
                   <motion.a
                     layoutId={`button-${active.title}-${id}`}
                     href={`/case-studies/${active._id}`}
-                    className="px-5 py-2 !text-xs rounded-full font-normal bg-primary-dark text-white"
+                    className="px-5 py-2 !text-xs rounded-full mt-1.5 font-normal bg-primary-dark text-white"
                   >
                     More detail
                   </motion.a>
