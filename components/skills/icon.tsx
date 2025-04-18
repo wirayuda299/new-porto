@@ -27,6 +27,7 @@ export default function TechIcon({ label, icon, delay }: TechIconProps) {
         src={icon}
         alt={label}
         width={70}
+        sizes='70px'
         loading="lazy"
         fetchPriority="low"
         height={70}

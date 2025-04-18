@@ -43,7 +43,6 @@ export default function HeroParallax ({ projects }: { projects: Projects[] }) {
         ref={ref}
         className="max-w-1400 mx-auto overflow-hidden antialiased relative flex flex-col perspective-[1000px] [transform-style:preserve-3d]"
       >
-        {/* Hero Text */}
         <div className="flex gap-5 min-h-[650px] flex-col justify-center px-4 md:px-10">
           <h1 className="text-3xl font-bold text-white md:text-7xl animate-fade-right transition-all duration-500">
             Professional Web<br />Developer Based in Bali.
@@ -54,7 +53,6 @@ export default function HeroParallax ({ projects }: { projects: Projects[] }) {
           <CallToAction />
         </div>
 
-        {/* Parallax Rows */}
         <m.div style={{ rotateX, rotateZ, translateY, opacity }}>
           <m.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
             {firstRow.map((p) => (

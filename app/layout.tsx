@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     default: "- Wirayuda",
   },
   description:
-    "Looking for a skilled React developer? Wirayuda offers expert web development services tailored to your needs. Contact us today for top-notch solutions!",
+    "Welcome to my portfolio website, where creativity meets innovative web development. Discover case studies, and design solutions that transform ideas into engaging digital experiences. Explore my work and let's create something extraordinary together.",
+
   keywords: [
     "React developer",
     "JavaScript",

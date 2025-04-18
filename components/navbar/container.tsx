@@ -1,12 +1,13 @@
 "use client";
 
 import {  useState } from "react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from "next/image";
 
 import { NAV_ITEMS } from "@/constants/index";
 import { cn } from "@/lib/utils";
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+
 
 export default function NavContainer() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -35,7 +36,7 @@ export default function NavContainer() {
             key={item.title}
           >
          <Link
-         prefetch={item.path !== "/"}
+         prefetch={false}
           aria-label={item.title}
           href={item.path}
           className={cn(
@@ -49,9 +50,7 @@ export default function NavContainer() {
           </li>
         ))}
 
-        <button
-          type="button"
-          title="close"
+        <li
           className="absolute right-5 top-5 text-white md:hidden"
           onClick={closeNav}
         >
@@ -59,12 +58,10 @@ export default function NavContainer() {
             src={"/assets/icons/cross.png"}
             width={40}
             height={40}
-            loading="lazy"
-            fetchPriority="low"
             alt="menu"
             className="aspect-auto size-6 object-contain"
           />
-        </button>
+        </li>
       </ul>
       <button
         title="menu"

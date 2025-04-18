@@ -1,6 +1,7 @@
 'use client'
 
 
+import { toast } from 'sonner';
 import Form from 'next/form'
 
 import { Input } from '@/components/ui/input';
@@ -8,7 +9,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { FORM_FIELDS } from '@/constants/index';
 import { sendMessage } from '@/actions';
 import SubmitButton from './submit-btn';
-import { toast } from 'sonner';
 
 export default function ContactForm() {
 

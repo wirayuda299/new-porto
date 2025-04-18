@@ -1,18 +1,15 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
+
 import { SERVICES } from "@/constants";
 import { getCaseStudies } from "@/sanity/action";
-
-const HeroParallax = dynamic(() => import("@/components/hero/hero"));
-const Skills = dynamic(() => import("@/components/skills/skills"));
-const FeaturedProjects = dynamic(() => import("@/components/featured-projects"));
-const CardSpotlight = dynamic(() => import("@/components/ui/card-spotlight"));
-const CallToAction = dynamic(() => import("@/components/cta"));
+import HeroParallax from '../../components/hero/hero';
+import Skills from '../../components/skills/skills';
+import CardSpotlight from '../../components/ui/card-spotlight';
+import FeaturedProjects from '../../components/featured-projects';
+import CallToAction from '../../components/cta';
 
 export const metadata = {
   title: "Home",
-  description:
-    "Welcome to my portfolio website, where creativity meets innovative web development. Discover case studies, and design solutions that transform ideas into engaging digital experiences. Explore my work and let's create something extraordinary together.",
 };
 
 export default async function Home() {
