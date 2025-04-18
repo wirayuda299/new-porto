@@ -1,74 +1,85 @@
 "use client";
 
-import { useMotionValue, motion, useMotionTemplate } from "motion/react";
-import React, { MouseEvent as ReactMouseEvent, useState } from "react";
+import { useState, useCallback, memo, ReactNode, HTMLAttributes } from "react";
+import { LazyMotion, domAnimation, m, useMotionValue, useMotionTemplate } from "framer-motion";
+
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { cn } from "@/lib/utils";
 
-export const CardSpotlight = ({
+interface CardSpotlightProps extends HTMLAttributes<HTMLDivElement> {
+  radius?: number;
+  color?: string;
+  children: ReactNode;
+}
+
+const springConfig = { stiffness: 300, damping: 30 };
+
+const CardSpotlight = ({
   children,
   radius = 350,
   color = "#262626",
   className,
   ...props
-}: {
-  radius?: number;
-  color?: string;
-  children: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>) => {
+}: CardSpotlightProps) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  function handleMouseMove({
-    currentTarget,
-    clientX,
-    clientY,
-  }: ReactMouseEvent<HTMLDivElement>) {
-    const { left, top } = currentTarget.getBoundingClientRect();
 
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
+  const [hover, setHover] = useState(false);
 
-  const [isHovering, setIsHovering] = useState(false);
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
+  const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top } = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - left);
+    mouseY.set(e.clientY - top);
+  }, [mouseX, mouseY]);
+
+  const onEnter = useCallback(() => setHover(true), []);
+  const onLeave = useCallback(() => setHover(false), []);
+
+  const mask = useMotionTemplate`
+    radial-gradient(
+      ${radius}px circle at ${mouseX}px ${mouseY}px,
+      white 0%, transparent 80%
+    )
+  `;
+
   return (
-    <div
-      className={cn(
-        "group/spotlight rounded-md relative border border-neutral-800 bg-black dark:border-neutral-800",
-        className,
-      )}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...props}
-    >
-      <motion.div
-        className="pointer-events-none absolute z-0 -inset-px rounded-md opacity-0 transition duration-300 group-hover/spotlight:opacity-100"
-        style={{
-          backgroundColor: color,
-          maskImage: useMotionTemplate`
-            radial-gradient(
-              ${radius}px circle at ${mouseX}px ${mouseY}px,
-              white,
-              transparent 80%
-            )
-          `,
-        }}
+    <LazyMotion features={domAnimation}>
+      <div
+        className={cn(
+          "group/spotlight relative rounded-md border border-neutral-800 bg-black overflow-hidden",
+          className
+        )}
+        onMouseMove={onMove}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        {...props}
       >
-        {isHovering && (
+        <m.div
+          className="pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity duration-300 group-hover/spotlight:opacity-100"
+          style={{
+            backgroundColor: color,
+            maskImage: mask,
+            WebkitMaskImage: mask,
+            transition: "opacity 0.3s ease",
+          }}
+          transition={springConfig}
+        >
           <CanvasRevealEffect
-            animationSpeed={5}
-            containerClassName="bg-transparent absolute inset-0 pointer-events-none"
+            animationSpeed={hover ? 5 : 0}
+            containerClassName="absolute inset-0 pointer-events-none bg-transparent"
             colors={[
               [59, 130, 246],
               [139, 92, 246],
             ]}
             dotSize={3}
           />
-        )}
-      </motion.div>
-      {children}
-    </div>
+        </m.div>
+
+        {children}
+      </div>
+    </LazyMotion>
   );
 };
+
+export default memo(CardSpotlight);
+
