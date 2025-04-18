@@ -3,12 +3,14 @@
 import { useCallback, useState } from "react";
 import Image from "next/image";
 
-import NavItem from "./nav-item";
 import { NAV_ITEMS } from "@/constants/index";
 import { cn } from "@/lib/utils";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function NavContainer() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const pathname=usePathname()
 
   const closeNav = useCallback(() => setIsOpen(false), []);
 
@@ -32,7 +34,17 @@ export default function NavContainer() {
             )}
             key={item.title}
           >
-            <NavItem path={item.path} title={item.title} />
+ <Link
+          aria-label={item.title}
+          href={item.path}
+          className={cn(
+            "text-lg font-normal uppercase md:text-sm md:capitalize",
+            pathname === item.path ? "font-semibold" : "",
+          )}
+        >
+          <span>{item.title}</span>
+        </Link>
+
           </li>
         ))}
 

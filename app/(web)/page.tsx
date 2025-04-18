@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import CallToAction from "@/components/cta";
-import Experience from "@/components/experience/experience";
 import FeaturedProjects from "@/components/featured-projects";
 import { HeroParallax } from "@/components/hero/hero";
 import Skills from "@/components/skills/skills";
@@ -17,6 +16,7 @@ export const metadata = {
 
 export default async function Home() {
   const projects = await getCaseStudies("all");
+
   return (
     <main className="size-full">
       <HeroParallax projects={projects} />
@@ -60,8 +60,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      <Experience />
       <FeaturedProjects />
       <CallToAction />
     </main>

@@ -81,7 +81,7 @@ export default function ExpandedProjectCard({
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
-                  width={400} 
+                  width={400}
                   height={400}
                   quality={50}
                   loading="lazy"
@@ -98,7 +98,7 @@ export default function ExpandedProjectCard({
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className=" text-white font-semibold capitalize py-3 text-lg"
+                      className=" text-white font-semibold !capitalize py-3 text-lg"
                     >
                       {active.title}
                     </motion.h3>
@@ -147,7 +147,7 @@ export default function ExpandedProjectCard({
               <div className="flex justify-center items-center flex-col">
                 <motion.h3
                   layoutId={`title-${project.title}-${id}`}
-                  className="font-semibold text-white  text-center md:text-left text-base"
+                  className="font-semibold capitalize text-white  text-center md:text-left text-base"
                 >
                   {project.title}
                 </motion.h3>

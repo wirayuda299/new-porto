@@ -1,9 +1,12 @@
-import CallToAction from "@/components/cta";
-import ProjectCard from "@/components/project-card";
+
+import dynamic from 'next/dynamic';
+
+const CallToAction=dynamic(() => import("@/components/cta"))
+const ProjectCard = dynamic(() => import("@/components/project-card"));
 import { getCaseStudies } from "@/sanity/action";
 
-export const metadata = { 
-  title: "Case Studies", 
+export const metadata = {
+  title: "Case Studies",
   description: "Explore our comprehensive case studies showcasing all our projects. Discover in-depth analyses, innovative solutions, and real-world success stories that highlight our expertise in delivering impactful, industry-leading projects. Perfect for professionals looking for inspiration and proven strategies in project execution." };
 
 export default async function CaseStudies() {

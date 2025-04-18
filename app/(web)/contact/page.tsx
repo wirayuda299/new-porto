@@ -1,10 +1,12 @@
 import Image from "next/image";
+import dynamic from 'next/dynamic';
 
-import ContactForm from "@/components/contact-form";
+const ContactForm = dynamic(() => import("@/components/contact-form"));
+
 import { SOCIAL_LINKS } from "@/constants";
 
-export const metadata = { 
-  title: "Contact", 
+export const metadata = {
+  title: "Contact",
   description: "Reach out to discuss your web projects, inquiries, and collaboration opportunities. Send an email directly to start a conversation about innovative digital solutions and creative web development."
 
 };

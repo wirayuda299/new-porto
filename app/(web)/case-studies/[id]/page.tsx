@@ -1,10 +1,11 @@
 import { ArrowRight, GlobeIcon } from "lucide-react";
 import Image from "next/image";
 import type { Metadata  } from "next";
+import dynamic from 'next/dynamic';
 
 import { getSimilarCaseStudies, getSingleCaseStudy } from "@/sanity/action";
-import ChallengesLearning from "@/components/challenges";
-import CaseStudies from "@/components/caseStudy";
+const CaseStudies= dynamic(() => import("@/components/caseStudy"))
+const ChallengesLearning= dynamic(() => import("@/components/challenges"))
 
 type Props = {
   params: Promise<{
@@ -16,9 +17,9 @@ export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
   const { id } = await params
- 
+
   const caseStudy= await getSingleCaseStudy(id)
- 
+
   return {
     title: caseStudy?.title + " - " + caseStudy?.subTitle,
     description:caseStudy?.descriptions,
