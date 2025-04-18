@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import {  useState } from "react";
 import Image from "next/image";
 
 import { NAV_ITEMS } from "@/constants/index";
@@ -12,7 +12,7 @@ export default function NavContainer() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname=usePathname()
 
-  const closeNav = useCallback(() => setIsOpen(false), []);
+  const closeNav = () => setIsOpen(false) ;
 
   return (
     <>
@@ -34,7 +34,8 @@ export default function NavContainer() {
             )}
             key={item.title}
           >
- <Link
+         <Link
+         prefetch={item.path !== "/"}
           aria-label={item.title}
           href={item.path}
           className={cn(
